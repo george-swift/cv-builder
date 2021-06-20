@@ -1,7 +1,10 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  entry: path.resolve(__dirname, '..', './src/index.js'),
   mode: 'development',
   devtool: 'eval-source-map',
   module: {
@@ -26,9 +29,17 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ['*', '.js', '.jsx'],
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/template.html',
+      template: path.resolve(__dirname, '..', './src/template.html'),
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
+  devServer: {
+    contentBase: path.resolve(__dirname, '..', './dist'),
+    hot: true,
+  },
 };
