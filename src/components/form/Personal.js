@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputGroup from '../utilities/InputGroup';
+import { InputGroup } from '../utilities/InputGroup';
 
 const PersonalInformation = ({ userInfo, onChange }) => (
   <fieldset className="col-12">
