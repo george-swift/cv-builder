@@ -21,7 +21,6 @@ const BuildSection = () => {
 
   const editExperience = (e, id) => {
     const { name, value } = e.target;
-
     setCv((oldState) => {
       const newExperience = oldState.experience.map((item) => {
         if (item.id === id) return { ...item, [name]: value };
@@ -50,7 +49,9 @@ const BuildSection = () => {
 
   const deleteExperience = (id) => {
     setCv((oldState) => {
-      const experienceField = oldState.experience.filter((item) => item.id !== id);
+      const experienceField = oldState.experience.length > 1
+        ? oldState.experience.filter((item) => item.id !== id)
+        : oldState.experience;
       return { ...oldState, experience: [...experienceField] };
     });
   };
@@ -86,7 +87,9 @@ const BuildSection = () => {
 
   const deleteEducation = (id) => {
     setCv((oldState) => {
-      const educationField = oldState.education.filter((item) => item.id !== id);
+      const educationField = oldState.education.length > 1
+        ? oldState.education.filter((item) => item.id !== id)
+        : oldState.education;
       return { ...oldState, education: [...educationField] };
     });
   };
