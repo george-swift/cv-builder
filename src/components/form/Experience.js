@@ -23,14 +23,7 @@ const Experience = ({
 
 Experience.propTypes = {
   experience: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      position: PropTypes.string.isRequired,
-      company: PropTypes.string.isRequired,
-      city: PropTypes.string.isRequired,
-      from: PropTypes.string.isRequired,
-      to: PropTypes.string.isRequired,
-    }),
+    PropTypes.objectOf(PropTypes.string.isRequired),
   ).isRequired,
   onChange: PropTypes.func.isRequired,
   onAdd: PropTypes.func.isRequired,

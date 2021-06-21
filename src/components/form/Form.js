@@ -47,25 +47,11 @@ CvForm.propTypes = {
     }).isRequired,
 
     experience: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        position: PropTypes.string.isRequired,
-        company: PropTypes.string.isRequired,
-        city: PropTypes.string.isRequired,
-        from: PropTypes.string.isRequired,
-        to: PropTypes.string.isRequired,
-      }),
+      PropTypes.objectOf(PropTypes.string.isRequired),
     ).isRequired,
 
     education: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        universityName: PropTypes.string.isRequired,
-        major: PropTypes.string.isRequired,
-        city: PropTypes.string.isRequired,
-        from: PropTypes.string.isRequired,
-        to: PropTypes.string.isRequired,
-      }),
+      PropTypes.objectOf(PropTypes.string.isRequired),
     ).isRequired,
   }).isRequired,
 

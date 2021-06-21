@@ -24,7 +24,7 @@ const controlledFields = {
   education: [
     {
       id: v4(),
-      universityName: '',
+      university: '',
       major: '',
       city: '',
       from: '',
