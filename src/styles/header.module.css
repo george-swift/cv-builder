@@ -1,0 +1,16 @@
+body {
+  background-color: #e6e7e7;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 1em;
+  background-color: #1f618d;
+  color: #fff;
+}
+
+h1 {
+  font-size: calc(1.155rem + 0.3vw);
+  margin: 0;
+}
