@@ -8,4 +8,9 @@ const camelCase = (string) => {
   return dup[0].toLowerCase() + dup.slice(1);
 };
 
-export { spaceCamel, camelCase };
+const titleCase = (string) => {
+  const dup = string.slice();
+  return dup[0].toUpperCase() + dup.slice(1);
+};
+
+export { spaceCamel, camelCase, titleCase };
