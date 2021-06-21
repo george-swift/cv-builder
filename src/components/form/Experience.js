@@ -12,15 +12,15 @@ const Experience = ({
 }) => (
   <fieldset className="col-12">
     <legend>Experience</legend>
-    { experience.map((item) => (
+    {experience.map((item) => (
       <div key={v4()} className="row g-3 mb-4">
         <ExperienceFieldset
           id={item.id}
           item={item}
           onChange={onChange}
         />
-        <Button text="Add" color="secondary" onClick={onAdd} />
-        <Button text="Cancel" color="warning" onClick={onDelete} />
+        <Button text="Add" color="outline-dark" onClick={onAdd} />
+        <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />
       </div>
     ))}
   </fieldset>

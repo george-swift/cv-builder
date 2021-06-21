@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { spaceCamel } from '../../helpers/formHelpers';
+import { spaceCamel, camelCase } from '../../helpers/formHelpers';
 
 const InputGroup = ({
   divClass,
@@ -14,7 +14,7 @@ const InputGroup = ({
     <input
       type={type}
       className="form-control"
-      name={id}
+      name={camelCase(id)}
       id={id}
       placeholder={placeholder}
       value={value}

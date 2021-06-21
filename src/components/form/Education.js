@@ -19,8 +19,8 @@ const Education = ({
           item={item}
           onChange={onChange}
         />
-        <Button text="Add" color="secondary" onClick={onAdd} />
-        <Button text="Delete" color="warning" onClick={onDelete} />
+        <Button text="Add" color="outline-dark" onClick={onAdd} />
+        <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />
       </div>
     ))}
   </fieldset>
