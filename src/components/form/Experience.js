@@ -1,5 +1,4 @@
 import React from 'react';
-import { v4 } from 'uuid';
 import PropTypes from 'prop-types';
 import ExperienceFieldset from '../utilities/ExperienceFieldset';
 import Button from '../utilities/Button';
@@ -13,12 +12,8 @@ const Experience = ({
   <fieldset className="col-12">
     <legend>Experience</legend>
     {experience.map((item) => (
-      <div key={v4()} className="row g-3 mb-4">
-        <ExperienceFieldset
-          id={item.id}
-          item={item}
-          onChange={onChange}
-        />
+      <div key={item.id} className="row g-3 mb-4">
+        {ExperienceFieldset({ id: item.id, item, onChange })}
         <Button text="Add" color="outline-dark" onClick={onAdd} />
         <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />
       </div>
