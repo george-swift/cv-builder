@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 
-const controlledFields = {
+const initialState = {
   personalInfo: {
     firstName: '',
     lastName: '',
@@ -33,4 +33,4 @@ const controlledFields = {
   ],
 };
 
-export default controlledFields;
+export default initialState;
