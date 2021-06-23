@@ -5,7 +5,7 @@ import { InputGroup } from '../utilities/InputGroup';
 const PersonalInformation = ({ userInfo, onChange }) => (
   <fieldset className="col-12">
     <legend>Personal Information</legend>
-    <div className="row g-3 mb-3">
+    <div className="row g-3 mb-4">
       <InputGroup
         divClass="col-md-6 form-floating"
         type="text"
@@ -64,14 +64,9 @@ const PersonalInformation = ({ userInfo, onChange }) => (
 );
 
 PersonalInformation.propTypes = {
-  userInfo: PropTypes.shape({
-    firstName: PropTypes.string.isRequired,
-    lastName: PropTypes.string.isRequired,
-    professionalTitle: PropTypes.string.isRequired,
-    emailAddress: PropTypes.string.isRequired,
-    phoneNumber: PropTypes.string.isRequired,
-    website: PropTypes.string.isRequired,
-  }).isRequired,
+  userInfo: PropTypes.objectOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EducationFieldset from '../utilities/EducationFieldet';
+import EducationFieldset from '../utilities/EducationFieldset';
 import Button from '../utilities/Button';
 
 const Education = ({
@@ -12,10 +12,10 @@ const Education = ({
   <fieldset className="col-12">
     <legend>Education</legend>
     { education.map((item) => (
-      <div key={item.id} className="row g-3 mb-4">
+      <div key={item.id} className="row g-3 mb-5">
         {EducationFieldset({ id: item.id, item, onChange })}
-        <Button text="Add" color="outline-dark" onClick={onAdd} />
-        <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />
+        <Button text="Add Section" color="outline-teal" onClick={onAdd} />
+        {education.length > 1 && <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />}
       </div>
     ))}
   </fieldset>
