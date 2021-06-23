@@ -43,14 +43,9 @@ const ExperienceFieldset = ({ id, item, onChange }) => (
 
 ExperienceFieldset.propTypes = {
   id: PropTypes.string.isRequired,
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    position: PropTypes.string.isRequired,
-    company: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    from: PropTypes.string.isRequired,
-    to: PropTypes.string.isRequired,
-  }).isRequired,
+  item: PropTypes.objectOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

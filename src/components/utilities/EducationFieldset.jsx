@@ -43,14 +43,9 @@ const EducationFieldset = ({ id, item, onChange }) => (
 
 EducationFieldset.propTypes = {
   id: PropTypes.string.isRequired,
-  item: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    university: PropTypes.string.isRequired,
-    major: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    from: PropTypes.string.isRequired,
-    to: PropTypes.string.isRequired,
-  }).isRequired,
+  item: PropTypes.objectOf(
+    PropTypes.string.isRequired,
+  ).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
