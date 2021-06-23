@@ -7,17 +7,13 @@ export default function reducer(state, action) {
     ? { ...item, [name]: value }
     : item));
 
-  const experienceFIeld = state.experience.length > 1
-    ? state.experience.filter((item) => item.id !== action.id)
-    : state.experience;
+  const experienceFIeld = state.experience.filter((item) => item.id !== action.id);
 
   const newEducation = state.education.map((item) => ((item.id === action.id)
     ? { ...item, [name]: value }
     : item));
 
-  const educationField = state.education.length > 1
-    ? state.education.filter((item) => item.id !== action.id)
-    : state.education;
+  const educationField = state.education.filter((item) => item.id !== action.id);
 
   switch (action.type) {
     case 'EDIT_INFO':
@@ -84,6 +80,9 @@ export default function reducer(state, action) {
         ...state,
         education: [...educationField],
       };
+
+    case 'RESET_FIELDS':
+      return action.reset;
 
     default:
       return state;
