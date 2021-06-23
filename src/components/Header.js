@@ -1,9 +1,8 @@
 import React from 'react';
 import { FaFileAlt } from 'react-icons/fa';
-import style from '../styles/header.module.css';
 
 const Header = () => (
-  <header className={style.header}>
+  <header className="header">
     <span className="me-2">
       <FaFileAlt />
     </span>
