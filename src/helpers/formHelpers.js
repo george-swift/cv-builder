@@ -13,4 +13,15 @@ const titleCase = (string) => {
   return dup[0].toUpperCase() + dup.slice(1);
 };
 
-export { spaceCamel, camelCase, titleCase };
+const smartIcon = (action, addIcon, deleteIcon) => {
+  if (action.match('Add')) return addIcon;
+  if (action.match('Delete')) return deleteIcon;
+  return null;
+};
+
+export {
+  spaceCamel,
+  camelCase,
+  titleCase,
+  smartIcon,
+};
