@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import EducationFieldset from '../utilities/EducationFieldset';
+import Fieldset from '../utilities/Fieldset';
 import Button from '../utilities/Button';
 
 const Education = ({
@@ -10,13 +10,32 @@ const Education = ({
   onDelete,
 }) => (
   <fieldset className="col-12">
-    <legend>Education</legend>
-    { education.map((item) => (
-      <div key={item.id} className="row g-3 mb-5">
-        {EducationFieldset({ id: item.id, item, onChange })}
-        <Button text="Add Section" color="outline-teal" onClick={onAdd} />
-        {education.length > 1 && <Button text="Delete" color="warning" onClick={() => onDelete(item.id)} />}
-      </div>
+    {
+      education.length < 1 && (
+        <>
+          <legend>Education</legend>
+          <Button text="ADD NEW EDUCATION" color="outline-teal" onClick={onAdd} />
+        </>
+      )
+    }
+    { education.map((item, i) => (
+      <React.Fragment key={item.id}>
+        <legend>
+          {education.length > 1 ? `Education #${i + 1}` : 'Education'}
+        </legend>
+        <div className="row g-3 mb-5">
+          {
+            Fieldset({
+              section: 'education',
+              id: item.id,
+              item,
+              onChange,
+            })
+          }
+          <Button text="ADD NEW EDUCATION" color="outline-teal" onClick={onAdd} />
+          <Button text="DELETE EDUCATION" color="warning" onClick={() => onDelete(item.id)} />
+        </div>
+      </React.Fragment>
     ))}
   </fieldset>
 );
