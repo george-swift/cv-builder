@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { IoAdd, IoCloseCircleOutline } from 'react-icons/io5';
-
-import { smartIcon } from '../../helpers/formHelpers';
+import { IoTrashBin } from 'react-icons/io5';
+import { VscPreview } from 'react-icons/vsc';
+import { FaEraser } from 'react-icons/fa';
+import { RiFileAddFill } from 'react-icons/ri';
 
 const Button = ({ text, color, onClick }) => (
   <div className="col-md-6">
     <button
-      type="button"
+      type={text.match('Generate') ? 'submit' : 'button'}
       className={`btn btn-sm btn-${color} w-100`}
       onClick={onClick}
     >
-      {smartIcon(
-        text,
-        <IoAdd />,
-        <IoCloseCircleOutline />,
-      )}
-      <span className="ms-2">{text}</span>
+      {text.match('ADD') && <RiFileAddFill />}
+      {text.match('DEL') && <IoTrashBin />}
+      <span className="mx-2">{text}</span>
+      {text.match('Gen') && <VscPreview />}
+      {text.match('Res') && <FaEraser />}
     </button>
   </div>
 );
