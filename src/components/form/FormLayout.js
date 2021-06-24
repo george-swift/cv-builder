@@ -23,18 +23,18 @@ const CvForm = ({
       onChange={onChangePersonal}
     />
     <hr />
-    <Experience
-      experience={cv.experience}
-      onChange={onChangeExperience}
-      onAdd={onAddExperience}
-      onDelete={onDeleteExperience}
-    />
-    <hr />
     <Education
       education={cv.education}
       onChange={onChangeEducation}
       onAdd={onAddEducation}
       onDelete={onDeleteEducation}
+    />
+    <hr />
+    <Experience
+      experience={cv.experience}
+      onChange={onChangeExperience}
+      onAdd={onAddExperience}
+      onDelete={onDeleteExperience}
     />
     <hr />
     <Button text="Generate Preview" color="outline-success" onClick={onPreview} />
