@@ -7,7 +7,6 @@ const initialState = {
     professionalTitle: '',
     emailAddress: '',
     phoneNumber: '',
-    website: '',
   },
 
   experience: [
@@ -15,9 +14,9 @@ const initialState = {
       id: v4(),
       position: '',
       company: '',
-      city: '',
-      from: '',
-      to: '',
+      jobDescription: '',
+      start: '',
+      end: '',
     },
   ],
 
@@ -26,9 +25,8 @@ const initialState = {
       id: v4(),
       university: '',
       major: '',
-      city: '',
-      from: '',
-      to: '',
+      start: '',
+      end: '',
     },
   ],
 };

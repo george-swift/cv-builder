@@ -1,0 +1,24 @@
+{
+  "fields": {
+    "personalInfo": [
+      "FirstName",
+      "LastName",
+      "ProfessionalTitle",
+      "EmailAddress",
+      "PhoneNumber"
+    ],
+    "experience": [
+      "position",
+      "company",
+      "jobDescription",
+      "start",
+      "end"
+    ],
+    "education": [
+      "university",
+      "major",
+      "start",
+      "end"
+    ]
+  }
+}
