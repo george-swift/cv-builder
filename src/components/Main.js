@@ -35,21 +35,19 @@ const FormManager = () => {
   });
 
   return (
-    <main className="container p-4">
-      <div className="formWrapper">
-        <CvForm
-          cv={state}
-          onChangePersonal={editPersonalInfo}
-          onChangeExperience={editExperience}
-          onAddExperience={addExperience}
-          onDeleteExperience={deleteExperience}
-          onChangeEducation={editEducation}
-          onAddEducation={addEducation}
-          onDeleteEducation={deleteEducation}
-          onReset={resetFields}
-        />
-      </div>
-    </main>
+    <div className="wrapper">
+      <CvForm
+        cv={state}
+        onChangePersonal={editPersonalInfo}
+        onChangeExperience={editExperience}
+        onAddExperience={addExperience}
+        onDeleteExperience={deleteExperience}
+        onChangeEducation={editEducation}
+        onAddEducation={addEducation}
+        onDeleteEducation={deleteEducation}
+        onReset={resetFields}
+      />
+    </div>
   );
 };
 
