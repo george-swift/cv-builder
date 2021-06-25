@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { VscPreview } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
 import PersonalInformation from './Personal';
 import Education from './Education';
 import Experience from './Experience';
 import Button from '../utilities/Button';
+import Preview from '../Preview';
 
 const CvForm = ({
   cv,
@@ -14,7 +17,6 @@ const CvForm = ({
   onChangeEducation,
   onAddEducation,
   onDeleteEducation,
-  onPreview,
   onReset,
 }) => (
   <form className="row g-3 px-4">
@@ -37,7 +39,16 @@ const CvForm = ({
       onDelete={onDeleteExperience}
     />
     <hr />
-    <Button text="Generate Preview" color="outline-success" onClick={onPreview} />
+    <div className="col-md-6">
+      <Link
+        to="/preview"
+        element={<Preview />}
+        className="btn btn-sm btn-outline-success w-100"
+      >
+        <span className="me-2">Preview Template</span>
+        <VscPreview />
+      </Link>
+    </div>
     <Button text="Reset all fields" color="outline-danger" onClick={onReset} />
   </form>
 );
@@ -62,7 +73,6 @@ CvForm.propTypes = {
   onChangeEducation: PropTypes.func.isRequired,
   onAddEducation: PropTypes.func.isRequired,
   onDeleteEducation: PropTypes.func.isRequired,
-  onPreview: PropTypes.func.isRequired,
   onReset: PropTypes.func.isRequired,
 };
 
