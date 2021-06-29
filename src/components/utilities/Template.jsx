@@ -14,11 +14,7 @@ const GenerateTemplate = ({ data }) => {
           Object.entries(personalInfo).map(([key, value]) => (
             <div
               key={key}
-              className={
-                key === 'professionalTitle'
-                  ? 'col-12 mb-3'
-                  : 'col-md-6 mb-3'
-              }
+              className="col-md-6 mb-3"
             >
               <h6>
                 {spaceCamel(titleCase(key))}

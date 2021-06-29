@@ -32,38 +32,7 @@ Preview.propTypes = {
     education: PropTypes.arrayOf(
       PropTypes.objectOf(PropTypes.string.isRequired),
     ).isRequired,
-  }),
-};
-
-Preview.defaultProps = {
-  data: {
-    personalInfo: {
-      firstName: '',
-      lastName: '',
-      professionalTitle: '',
-      emailAddress: '',
-      phoneNumber: '',
-    },
-
-    experience: [
-      {
-        position: '',
-        company: '',
-        jobDescription: '',
-        start: '',
-        end: '',
-      },
-    ],
-
-    education: [
-      {
-        university: '',
-        major: '',
-        start: '',
-        end: '',
-      },
-    ],
-  },
+  }).isRequired,
 };
 
 export default Preview;
