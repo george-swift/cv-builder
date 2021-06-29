@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { spaceCamel, titleCase } from '../../helpers/formHelpers';
 
 const GenerateTemplate = ({ data }) => {
-  const { personalInfo } = data;
+  const { personalInfo, education } = data;
 
   return (
     <>
@@ -28,6 +28,30 @@ const GenerateTemplate = ({ data }) => {
                 {value !== '' ? value : 'Required'}
               </p>
             </div>
+          ))
+        }
+      </div>
+      <h4>Education</h4>
+      <hr />
+      <div className="row w-100 m-0">
+        {
+          education.map((userEducation) => (
+            Object.entries(userEducation).map(([key, value]) => (
+              key !== 'id' && (
+                <div
+                  key={key}
+                  className="col-md-6 mb-3"
+                >
+                  <h6>
+                    {spaceCamel(titleCase(key))}
+                    :
+                  </h6>
+                  <p className={value === '' ? 'text-danger' : 'text-dark'}>
+                    {value !== '' ? value : 'Required'}
+                  </p>
+                </div>
+              )
+            ))
           ))
         }
       </div>
