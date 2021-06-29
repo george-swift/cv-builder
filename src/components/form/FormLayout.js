@@ -42,7 +42,7 @@ const CvForm = ({
     <div className="col-md-6">
       <Link
         to="/preview"
-        element={<Preview />}
+        element={<Preview data={cv} />}
         className="btn btn-sm btn-outline-success w-100"
       >
         <span className="me-2">Preview Template</span>
