@@ -1,11 +1,9 @@
-import React, { useReducer } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import CvForm from './form/FormLayout';
 import initialState from '../data/static';
-import reducer from './reducer';
 
-const FormManager = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+const FormManager = ({ state, dispatch }) => {
   const editPersonalInfo = (e) => dispatch({
     type: 'EDIT_INFO',
     payload: e.target,
@@ -35,22 +33,36 @@ const FormManager = () => {
   });
 
   return (
-    <main className="container p-4">
-      <div className="formWrapper">
-        <CvForm
-          cv={state}
-          onChangePersonal={editPersonalInfo}
-          onChangeExperience={editExperience}
-          onAddExperience={addExperience}
-          onDeleteExperience={deleteExperience}
-          onChangeEducation={editEducation}
-          onAddEducation={addEducation}
-          onDeleteEducation={deleteEducation}
-          onReset={resetFields}
-        />
-      </div>
-    </main>
+    <div className="wrapper">
+      <CvForm
+        cv={state}
+        onChangePersonal={editPersonalInfo}
+        onChangeExperience={editExperience}
+        onAddExperience={addExperience}
+        onDeleteExperience={deleteExperience}
+        onChangeEducation={editEducation}
+        onAddEducation={addEducation}
+        onDeleteEducation={deleteEducation}
+        onReset={resetFields}
+      />
+    </div>
   );
+};
+
+FormManager.propTypes = {
+  state: PropTypes.shape({
+    personalInfo: PropTypes.objectOf(PropTypes.string.isRequired),
+
+    experience: PropTypes.arrayOf(
+      PropTypes.objectOf(PropTypes.string.isRequired),
+    ).isRequired,
+
+    education: PropTypes.arrayOf(
+      PropTypes.objectOf(PropTypes.string.isRequired),
+    ).isRequired,
+  }).isRequired,
+
+  dispatch: PropTypes.func.isRequired,
 };
 
 export default FormManager;
