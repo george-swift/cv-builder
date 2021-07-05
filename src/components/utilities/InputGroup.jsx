@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { spaceCamel, camelCase } from '../../helpers/formHelpers';
+import { spaceCamel, camelCase } from '../../helpers/stringWrangler';
 
 const InputGroup = ({
   id,
