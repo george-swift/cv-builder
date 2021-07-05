@@ -8,13 +8,19 @@ body {
 }
 
 .logo,
-.previous {
+.center,
+.wrapper {
   display: flex;
   align-items: center;
 }
 
 .logo:hover {
   transform: scale(0.99) translate(-2px);
+  transition: 0.4s ease-in;
+}
+
+.icon svg:hover {
+  transform: scale(1.2) translateY(-4px);
   transition: 0.4s ease-in;
 }
 
@@ -28,7 +34,6 @@ h4 {
 }
 
 .wrapper {
-  display: flex;
   justify-content: center;
 }
 
@@ -71,6 +76,6 @@ label {
 
 @media screen and (min-width: 768px) {
   .card {
-    width: 50%;
+    width: 60%;
   }
 }
