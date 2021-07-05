@@ -1,22 +1,23 @@
-import React, { useReducer } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link,
 } from 'react-router-dom';
+import { BsInfoCircle } from 'react-icons/bs';
+import { FaEdit } from 'react-icons/fa';
+import { VscPreview } from 'react-icons/vsc';
 import Header from './Header';
-import FormManager from './Main';
-import '../styles/App.css';
+import Editor from './Main';
 import About from './About';
 import Preview from './Preview';
-import initialState from '../data/static';
-import reducer from './reducer';
+import { BuildProvider } from '../helpers/BuildContext';
 
-const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+import '../styles/App.css';
 
-  return (
+const App = () => (
+  <BuildProvider>
     <Router>
       <Header />
 
@@ -24,35 +25,38 @@ const App = () => {
         <div className="row py-4">
           <div className="col-md-3 d-flex flex-column mt-4">
             <Link
-              to="/about"
-              className="btn btn-outline-teal mb-3"
+              to="/"
+              className="btn btn-outline-teal mb-3 wrapper"
             >
-              About
+              <BsInfoCircle />
+              <span className="ms-2">About</span>
             </Link>
             <Link
               to="/editor"
-              className="btn btn-outline-teal mb-3"
+              className="btn btn-outline-teal mb-3 wrapper"
             >
-              Editor
+              <FaEdit />
+              <span className="ms-2">Editor</span>
             </Link>
             <Link
               to="/preview"
-              className="btn btn-outline-teal mb-3"
+              className="btn btn-outline-teal mb-3 wrapper"
             >
-              Preview
+              <VscPreview />
+              <span className="ms-2">Preview</span>
             </Link>
           </div>
           <div className="col-md-9 mt-4 wrapper">
             <Routes>
-              <Route path="/about" element={<About />} />
-              <Route path="/editor" element={<FormManager state={state} dispatch={dispatch} />} />
-              <Route path="/preview" element={<Preview data={state} />} />
+              <Route path="/" element={<About />} />
+              <Route path="/editor" element={<Editor />} />
+              <Route path="/preview" element={<Preview />} />
             </Routes>
           </div>
         </div>
       </main>
     </Router>
-  );
-};
+  </BuildProvider>
+);
 
 export default App;

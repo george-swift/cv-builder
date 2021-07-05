@@ -1,19 +1,20 @@
 import { v4 } from 'uuid';
 
 export default function reducer(state, action) {
-  const { name, value } = action.payload ? action.payload : '';
+  const { name, value } = action.payload?.target ?? '';
+  const ID = action.payload?.id;
 
-  const newExperience = state.experience.map((item) => ((item.id === action.id)
+  const newExperience = state.experience.map((item) => ((item.id === ID)
     ? { ...item, [name]: value }
     : item));
 
-  const experienceFIeld = state.experience.filter((item) => item.id !== action.id);
+  const experienceFIeld = state.experience.filter((item) => item.id !== ID);
 
-  const newEducation = state.education.map((item) => ((item.id === action.id)
+  const newEducation = state.education.map((item) => ((item.id === ID)
     ? { ...item, [name]: value }
     : item));
 
-  const educationField = state.education.filter((item) => item.id !== action.id);
+  const educationField = state.education.filter((item) => item.id !== ID);
 
   switch (action.type) {
     case 'EDIT_INFO':
@@ -81,7 +82,7 @@ export default function reducer(state, action) {
       };
 
     case 'RESET_FIELDS':
-      return action.reset;
+      return action.payload;
 
     default:
       return state;

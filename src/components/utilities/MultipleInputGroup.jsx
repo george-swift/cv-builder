@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { spaceCamel, titleCase } from '../../helpers/formHelpers';
+import { spaceCamel, titleCase } from '../../helpers/stringWrangler';
 
 const MultipleInputGroup = ({
   id,

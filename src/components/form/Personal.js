@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputGroup from '../utilities/InputGroup';
 import data from '../../data/fields.json';
-import { camelCase, spaceCamel } from '../../helpers/formHelpers';
+import { camelCase, spaceCamel } from '../../helpers/stringWrangler';
 
 const PersonalInformation = ({ userInfo, onChange }) => {
   const { fields } = data;
